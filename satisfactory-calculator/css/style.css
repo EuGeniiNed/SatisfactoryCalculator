@@ -88,9 +88,14 @@ input, select, option, textarea {
   border: 1px solid #b0b0b0;
 }
 .add-resource-form button {
-  padding: 7px 18px;
-  border-radius: 6px;
-  font-size: 1em;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 1em;
+    height: 36px;
+    min-height: 0;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
 }
 .base-resources-group {
   border: 1.5px solid #e0e0e0;
@@ -161,10 +166,9 @@ input, select, option, textarea {
   margin-top: 8px;
 }
 .base-resources-group .add-resource-form input[type="text"] {
-  flex: 1 1 200px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  border: 1px solid #b0b0b0;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
 }
 .base-resources-group .add-resource-form button {
   padding: 7px 18px;
@@ -180,19 +184,12 @@ input, select, option, textarea {
   background: #2c2f41;
 }
 .del-base-resource-btn {
-  background: #a60000;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.83em;
-  padding: 2.5px 9px;
-  cursor: pointer;
-  transition: background 0.2s;
-  min-width: 0;
-  min-height: 0;
-  line-height: 1.2;
-  float: right;
-  margin: 0;
+     background-color: #a60000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
   font-family: 'SatisfactoryFont' !important;
 }
 .del-base-resource-btn:hover {
@@ -314,4 +311,14 @@ button {
 .action-col {
     text-align: center !important;
     vertical-align: middle !important;
+} 
+.new-resource td {
+    font-weight: normal !important;
+} 
+.base-resource-category table td,
+#base-resources-list-table td,
+#base-resources-table td {
+    font-weight: normal !important;
+    font-size: 16px !important;
+    color: #333333 !important;
 } 
