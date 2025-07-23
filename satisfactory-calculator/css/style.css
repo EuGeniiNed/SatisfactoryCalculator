@@ -1,0 +1,317 @@
+@font-face {
+    font-family: 'SatisfactoryFont';
+    src: url('../font/satisfactory_font.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: 'SatisfactoryFont';
+    line-height: 1.6;
+    margin: 0;
+    background-color: #b85c00;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    /* background-image: none; */
+    /* background-size: cover; */
+    /* background-repeat: no-repeat; */
+    /* background-position: center center; */
+}
+header { background: #333; color: #fff; padding: 1rem 0; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+header h1 { margin: 0; font-size: 2rem; }
+nav { margin-top: 1rem; }
+main { flex: 1; padding: 2rem; width: 90%; max-width: 1400px; margin: 0 auto; }
+/* Tabs */
+.tab-btn { background: #555; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 1rem; margin: 0 5px; border-radius: 5px 5px 0 0; transition: background-color 0.3s; }
+.tab-btn.active, .tab-btn:hover { background: #fa9549; }
+.tab-content { display: none; border: 1.5px solid #e0e0e0;
+    border-radius: 8px;
+    background: #fafbfc;
+    padding: 18px 12px 12px 12px;
+    box-shadow: none;
+    width: 100%;
+    text-align: left; }
+.tab-content.active { display: block; }
+/* Tables */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+th, td { padding: 12px 15px; border: 1px solid #ddd; text-align: left; }
+th { background-color: #fa9549; color: white; font-weight: normal; }
+tr:nth-child(even) { background-color: #f2f2f2; }
+tr:hover { background-color: #e9ecef; }
+input[type="number"] { width: 100px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+select { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+input, select, option, textarea {
+    font-family: 'SatisfactoryFont' !important;
+}
+.shortage { background-color: #ffcccc !important; color: #a60000; font-weight: normal; }
+/* Forms and Buttons */
+.action-btn { background-color: #5f668c; color: white; padding: 10px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 1rem; margin-bottom: 15px; }
+.action-btn:hover { background-color: #2c2f41; }
+.delete-btn { background-color: #a60000; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+.delete-btn:hover { background-color: #b92d2d; }
+.production-category, .base-resource-category {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fafbfc;
+  margin: 32px 0 24px 0;
+  padding: 24px 18px 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.production-category h3, .base-resource-category h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 1.3em;
+  font-weight: normal;
+  color: #2d3a4a;
+}
+.production-category table, .base-resource-category table {
+  margin-bottom: 16px;
+}
+.production-category .action-btn, .base-resource-category .action-btn {
+  display: block;
+  margin: 0 auto 0 auto;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+.add-resource-form {
+  margin-bottom: 24px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.add-resource-form input[type="text"] {
+  flex: 1 1 200px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #b0b0b0;
+}
+.add-resource-form button {
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+}
+.base-resources-group {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafbfc;
+  margin: 24px 0 16px 0;
+  padding: 14px 8px 8px 8px;
+  box-shadow: none;
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+}
+#base-resources-list {
+  display: block;
+  list-style: none;
+  margin: 0 0 18px 0;
+  padding: 0;
+}
+#base-resources-list tr, #base-resources-list td {
+  background: none;
+  border: none;
+  box-shadow: none;
+  text-align: left;
+  font-size: 1.08em;
+  color: #2d3a4a;
+  font-weight: normal;
+  padding: 8px 0;
+}
+#base-resources-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-left: 0;
+}
+#base-resources-list-table th, #base-resources-list-table td {
+  width: 100%;
+}
+#base-resources-list-table th {
+  background: #fa9549;
+  color: #fff;
+  font-weight: normal;
+  padding: 7px 10px;
+  text-align: left;
+  font-size: 1em;
+  border: none;
+}
+#base-resources-list-table td {
+  padding: 7px 10px;
+  font-size: 1em;
+  color: #2d3a4a;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: normal;
+  background: #fff;
+}
+#base-resources-list-table tr:nth-child(even) td {
+  background: #f7fafd;
+}
+#base-resources-list-table tr:last-child td {
+  border-bottom: none;
+}
+#base-resources-list-table tr:hover td {
+  background: #e6f0fa;
+}
+.base-resources-group .add-resource-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 8px;
+}
+.base-resources-group .add-resource-form input[type="text"] {
+  flex: 1 1 200px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #b0b0b0;
+}
+.base-resources-group .add-resource-form button {
+  padding: 7px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  background: #5f668c;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.base-resources-group .add-resource-form button:hover {
+  background: #2c2f41;
+}
+.del-base-resource-btn {
+  background: #a60000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.83em;
+  padding: 2.5px 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 0;
+  min-height: 0;
+  line-height: 1.2;
+  float: right;
+  margin: 0;
+  font-family: 'SatisfactoryFont' !important;
+}
+.del-base-resource-btn:hover {
+  background: #c0392b;
+}
+.del-prod-btn {
+  background: #a60000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.83em;
+  padding: 2.5px 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 0;
+  min-height: 0;
+  line-height: 1.2;
+  margin: 0;
+}
+.del-prod-btn:hover {
+  background: #c0392b;
+}
+.del-br-btn {
+  background: #a60000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.83em;
+  padding: 2.5px 9px;
+  cursor: pointer;
+  transition: background 0.2s;
+  min-width: 0;
+  min-height: 0;
+  line-height: 1.2;
+  margin: 0;
+}
+.del-br-btn:hover {
+  background: #c0392b;
+}
+#recipes-tab {
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  background: #fafbfc;
+  padding: 18px 12px 12px 12px;
+  box-shadow: none;
+  width: 100%;
+  text-align: left;
+}
+.recipes-card {
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fafbfc;
+  margin: 32px 0 24px 0;
+  padding: 24px 18px 18px 18px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  width: 95%;
+  text-align: left;
+}
+.recipes-card .table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+#add-recipe-btn.action-btn {
+  display: block;
+  margin: 12px auto 0 auto;
+} 
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.site-logo {
+    max-height: 110px;
+    width: auto;
+    height: auto;
+    cursor: default;
+    transition: transform 0.2s;
+}
+.site-logo:hover {
+    transform: scale(1.07) rotate(-2deg);
+}
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+}
+.railway-map {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    border: 2px solid #fa9549;
+    transition: transform 0.3s;
+    cursor: zoom-in;
+}
+.railway-map.zoomed {
+    /* убираю transform: scale(2), теперь он задается скриптом */
+    cursor: grab;
+    z-index: 1000;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+    position: relative;
+}
+.railway-map.zoomed:active {
+    cursor: grabbing;
+} 
+.tab-btn, .action-btn, .delete-btn, .tab-btn.active, .tab-btn:hover {
+    font-family: 'SatisfactoryFont' !important;
+} 
+th, td, tr, thead, tbody, tfoot {
+    font-family: 'SatisfactoryFont' !important;
+    font-weight: normal !important;
+} 
+button {
+    font-family: 'SatisfactoryFont' !important;
+    font-weight: normal !important;
+} 
+.action-col {
+    text-align: center !important;
+    vertical-align: middle !important;
+} 

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satisfactory Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="img/logo_2x.png" alt="Логотип" class="site-logo">
+        </div>
+        <div class="subtitle" style="font-size:1.3em; color:#888; margin-bottom: 0.5em;">o_ct0s | lelouch_sayoji</div>
+        <nav>
+            <button id="map-tab-btn" class="tab-btn">Карта ЖД Дороги</button>
+            <button id="recipes-tab-btn" class="tab-btn active">Рецепты</button>
+            <button id="base-resources-tab-btn" class="tab-btn">Базовые ресурсы</button>
+            <button id="production-tab-btn" class="tab-btn">Производство</button>
+        </nav>
+    </header>
+    <main>
+        <div id="recipes-tab" class="tab-content active">
+            <h2>Рецепты</h2>
+            <div class="recipes-card">
+                <div class="table-container">
+                    <table id="recipes-table"></table>
+                </div>
+                <button id="add-recipe-btn" class="action-btn">Добавить новый рецепт</button>
+            </div>
+            <div id="base-resources-group" class="base-resources-group">
+                <h3>Базовые ресурсы</h3>
+                <div class="table-container">
+                    <table id="base-resources-list-table">
+                        <thead><tr><th>Ресурс</th></tr></thead>
+                        <tbody id="base-resources-list"></tbody>
+                    </table>
+                </div>
+                <div class="add-resource-form">
+                    <input type="text" id="new-base-resource-name" placeholder="Название нового ресурса">
+                    <button id="add-base-resource-btn" class="action-btn">Добавить ресурс</button>
+                </div>
+            </div>
+        </div>
+        <div id="base-resources-tab" class="tab-content">
+            <h2>Базовые ресурсы</h2>
+            <div id="base-resources-categories-container"></div>
+            <div class="table-container">
+                <table id="base-resources-table"></table>
+            </div>
+        </div>
+        <div id="production-tab" class="tab-content">
+            <h2>Производство</h2>
+            <div id="production-categories-container"></div>
+            <div class="table-container">
+                <table id="production-table"></table>
+            </div>
+        </div>
+        <div id="map-tab" class="tab-content">
+            <div class="map-container">
+                <img src="img/map.png" alt="Карта ЖД" class="railway-map zoomable-map" id="main-map-img">
+            </div>
+        </div>
+        <div id="map-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.95);justify-content:center;align-items:center;">
+            <img src="img/map.png" alt="Карта ЖД" id="modal-map-img" style="max-width:95vw;max-height:95vh;box-shadow:0 4px 32px #000;border-radius:12px;">
+            <button id="close-map-modal" style="position:absolute;top:32px;right:48px;font-size:2.5em;background:none;border:none;color:#fff;cursor:pointer;z-index:10001;">✕</button>
+        </div>
+    </main>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html> 
